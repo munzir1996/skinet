@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "skinet", "skinet\skinet.csproj", "{1BE1F128-68E0-4F9F-BC28-C4805DDEA5D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{C4E99A72-115B-4EF4-B255-2DAE0307DB47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{72F43BCB-C45F-4493-B5A6-3BE94929A6AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BE1F128-68E0-4F9F-BC28-C4805DDEA5D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BE1F128-68E0-4F9F-BC28-C4805DDEA5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BE1F128-68E0-4F9F-BC28-C4805DDEA5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BE1F128-68E0-4F9F-BC28-C4805DDEA5D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4E99A72-115B-4EF4-B255-2DAE0307DB47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4E99A72-115B-4EF4-B255-2DAE0307DB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4E99A72-115B-4EF4-B255-2DAE0307DB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4E99A72-115B-4EF4-B255-2DAE0307DB47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72F43BCB-C45F-4493-B5A6-3BE94929A6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72F43BCB-C45F-4493-B5A6-3BE94929A6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72F43BCB-C45F-4493-B5A6-3BE94929A6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72F43BCB-C45F-4493-B5A6-3BE94929A6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5FDFF7E-1D4C-41FA-A996-88F81C0EF2CE}
+	EndGlobalSection
+EndGlobal
