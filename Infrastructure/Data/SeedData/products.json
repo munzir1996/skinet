@@ -1,0 +1,34 @@
+[
+ {
+  "Name": "Product one",
+  "Description": "lorem ipsome",
+  "Price": 15.6,
+  "PictureUrl": "images\/products\/sb-ang1.png",
+  "ProductTypeId": 1,
+  "ProductBrandId": 1
+ },
+ {
+  "Name": "Product two",
+  "Description": "lorem ipsome",
+  "Price": 553.1,
+  "PictureUrl": "images\/products\/sb-ang2.png",
+  "ProductTypeId": 1,
+  "ProductBrandId": 4
+ },
+ {
+  "Name": "Product three",
+  "Description": "lorem ipsome",
+  "Price": 159,
+  "PictureUrl": "images\/products\/sb-ang3.png",
+  "ProductTypeId": 2,
+  "ProductBrandId": 3
+ },
+ {
+  "Name": "Product four",
+  "Description": "lorem ipsome",
+  "Price": 55,
+  "PictureUrl": "images\/products\/sb-ang4.png",
+  "ProductTypeId": 3,
+  "ProductBrandId": 2
+ }
+]
