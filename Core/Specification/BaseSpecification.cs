@@ -9,6 +9,7 @@ namespace Core.Specification
 {
     public class BaseSpecification<T> : ISpecification<T>
     {
+
         public BaseSpecification()
         {
         }
@@ -25,5 +26,6 @@ namespace Core.Specification
         { 
             Includes.Add(includeExpression); 
         }
+
     }
 }
