@@ -6,6 +6,7 @@ using skinet.Middleware;
 using Microsoft.AspNetCore.Mvc;
 using skinet.Errors;
 using skinet.Extensions;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,15 @@ builder.Services.AddApplicationServices();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy",
+            policy =>
+            {
+                policy.WithOrigins("https://localhost:4200");
+            });
+});
 
 var app = builder.Build();
 
@@ -56,6 +66,8 @@ app.UseStatusCodePagesWithReExecute("/errors/{0}");
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
+
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 

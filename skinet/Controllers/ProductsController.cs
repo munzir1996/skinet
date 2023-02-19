@@ -6,6 +6,7 @@ using Core.Interfaces;
 using Core.Specification;
 using skinet.Dtos;
 using AutoMapper;
+using skinet.Helpers;
 
 namespace skinet.Controllers
 {
@@ -30,13 +31,24 @@ namespace skinet.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
+        public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts(
+            [FromQuery]ProductSpecParams productParams)
         {
-            var spec = new ProductsWithTypesAndBrandsSpecification();
+            var spec = new ProductsWithTypesAndBrandsSpecification(productParams);
+
+            var countSpec = new ProductWithFiltersForCountSpecificiation(productParams);
+
+            var totalItems = await this.productRepository.CountAsync(countSpec);
 
             var products = await this.productRepository.ListAsync(spec);
 
-            return Ok(this.mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products));
+            var data = this.mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
+
+            return Ok(new Pagination<ProductToReturnDto>(
+                productParams.PageIndex, 
+                productParams.PageSize,
+                totalItems,
+                data));
         }
 
         [HttpGet("{id}")]
