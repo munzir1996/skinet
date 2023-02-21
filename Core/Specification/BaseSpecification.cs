@@ -38,9 +38,9 @@ namespace Core.Specification
         {
             this.OrderBy = orderByExpression;
         }
-        protected void AddOrderByDescending(Expression<Func<T, object>> orderByExpression)
+        protected void AddOrderByDescending(Expression<Func<T, object>> orderByDescExpression)
         {
-            this.OrderByDescending = orderByExpression;
+            this.OrderByDescending = orderByDescExpression;
         }
 
         protected void ApplyPaging(int skip, int take)
