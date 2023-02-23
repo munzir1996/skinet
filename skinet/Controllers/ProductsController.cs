@@ -7,6 +7,7 @@ using Core.Specification;
 using skinet.Dtos;
 using AutoMapper;
 using skinet.Helpers;
+using skinet.Errors;
 
 namespace skinet.Controllers
 {
@@ -15,7 +16,7 @@ namespace skinet.Controllers
     {
         private readonly IGenericRepository<Product> productRepository;
         private readonly IGenericRepository<ProductBrand> productBrandRepository;
-        private readonly IGenericRepository<ProductType> productTypeRepository;
+        IGenericRepository<ProductType> productTypeRepository;
         private readonly IMapper mapper;
 
         public ProductsController(
@@ -24,10 +25,10 @@ namespace skinet.Controllers
             IGenericRepository<ProductType> productTypeRepository,
             IMapper mapper)
         {
-            this.mapper = mapper;
             this.productRepository = productRepository;
             this.productBrandRepository = productBrandRepository;
             this.productTypeRepository = productTypeRepository;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -42,7 +43,7 @@ namespace skinet.Controllers
 
             var products = await this.productRepository.ListAsync(spec);
 
-            var data = this.mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
+            var data = this.mapper.Map<IReadOnlyList<ProductToReturnDto>>(products);
 
             return Ok(new Pagination<ProductToReturnDto>(
                 productParams.PageIndex, 
@@ -52,6 +53,8 @@ namespace skinet.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(id);
